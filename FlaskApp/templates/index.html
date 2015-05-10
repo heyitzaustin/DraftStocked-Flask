@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DraftStocked</title>
+    <link rel="shortcut icon" href="http://www.iconarchive.com/download/i49298/martin-berube/sport/Basketball.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="page-header">
+      <h1>DraftStocked <small>A simple and handy Draft Tool</small></h1>
+    </ul>
+
+    <ul class = "About">
+      <p>DraftStocked is a small but handy tool to aggregate information about Draft prospects in the 2015 NBA Draft. This tool combs through popular reddit threads from the past day/week/month to find relevant conversations about these prospects.</p>
+      <p>
+      Every comment concerning each player is put through a <a href="https://www.twinword.com/sentiment-analysis.php">sentiment analysis engine</a> to analyze whether the player has been spoken of positively or negatively lately. Each player than has a displayed 'Stock' and 'Change' to show how they've been doing/spoken of in the past few days!
+      </p>
+      <p>
+      Repository for the application is available <a href="https://github.com/heyitzaustin/DraftStocked">here</a>
+      </p>
+    </ul>
+    <ul class=playerList>
+
+
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">2015 Draft Prospects<small>(Top 9 According to <a href="http://espn.go.com/nba/lottery2015/mockdraft">ESPN</a>)</small></div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>Player</th>
+        <th>Stock</th>
+        <th>Change<small>(in last day)</small></th>
+      </tr>
+      {% for url,name,score,change in playerList %}
+        <tr>
+          <td><a href = "/player/{{url}}">{{name}}</a></td>
+          <td>{{score}}</td>
+          <td>{{change}}</td>
+        <tr>
+      {% endfor %}
+      <tr>
+      </tr>
+    </table>
+    </div>
+
+    <div class="row">
+            <div class="col-lg-12 footer-below">
+                <p>Developed by Austin Li &copy 2015. Website built with <a href="http://getbootstrap.com/">Bootstrap</a></p>
+            </div>
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{name}}</title>
+    <link rel="shortcut icon" href="http://www.iconarchive.com/download/i49298/martin-berube/sport/Basketball.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul>
+      <br>
+        <a href="/" class="btn btn-info" role="button">Home</a>
+      <br>
+      <br>
+    <h1> Draft report for {{name}} </h1>
+      <br>
+      <h3>Stock: {{stock}} ({{change}} over past day)</h3>
+      <br>
+      <h3>Top references</h3>
+      <div class="list-group">
+      {% for score,body,permalink,date in comments %}
+          <li class="list-group-item">
+          <span class="badge">{{score}}</span>
+          <a href={{permalink}} class="btn btn-success" role="button">Context</a>
+          Date Posted: {{date}}<br>
+        {{body}}
+        </li>
+      {% endfor %}
+      </div>
+
+    <div class="row">
+            <div class="col-lg-12 footer-below">
+                <p>Developed by Austin Li &copy 2015. Website built with <a href="http://getbootstrap.com/">Bootstrap</a></p>
+            </div>
+    </div>
+
+    </ul>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>
