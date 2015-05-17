@@ -48,6 +48,7 @@ def playerpage(name):
 		t = datetime.datetime.fromtimestamp(row[3]).strftime('%m-%d-%Y')
 		if row[0] > 0:
 			commentList.append((row[0],row[1],row[2],t))
+	commentList.sort(key=lambda x: x[0],reverse=True)
 	return render_template('player.html',name=playername,stock=stock,change=change,comments=commentList)
 
 if __name__ == "__main__":
