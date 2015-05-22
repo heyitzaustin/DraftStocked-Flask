@@ -23,9 +23,30 @@
       <br>
       <h3>Stock: {{stock}} ({{change}} over past day)</h3>
       <br>
-      <h3>Top references</h3>
+      <a href="#recent" class="btn btn-primary" role="button">Recent Comments</a>
+      <a href="#month" class="btn btn-primary" role="button">Comments over past month</a>
+      <br>
+      <span id="recent"> &nbsp; </span>
+      <h3>Recent References</h3>
       <div class="list-group">
-      {% for score,body,permalink,date in comments %}
+      <br>
+      {% for score,body,permalink,date in rcomments %}
+          <li class="list-group-item">
+          <span class="badge">{{score}}</span>
+          <a href={{permalink}} class="btn btn-success" role="button">Context</a>
+          Date Posted: {{date}}<br><br>
+        {{body}}
+        </li>
+      {% endfor %}
+      </div>
+      <br>
+      <br>
+      <br>
+      <span id="month"> &nbsp; </span>
+      <h3>References over past month</h3>
+      <br>
+      <div class="list-group">
+      {% for score,body,permalink,date in ocomments %}
           <li class="list-group-item">
           <span class="badge">{{score}}</span>
           <a href={{permalink}} class="btn btn-success" role="button">Context</a>
